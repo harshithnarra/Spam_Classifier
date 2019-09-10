@@ -9,11 +9,8 @@ from sklearn.svm import SVC
 from random import shuffle
 from sklearn.metrics import classification_report, confusion_matrix
 data_dir = Path('/Users/harsh/PycharmProjects/spam_classifier/data')
-check_dir=Path('/Users/harsh/PycharmProjects/spam_classifier/check')
 process(data_dir)
-process(check_dir)
 emails = [os.path.join(data_dir, f) for f in os.listdir(data_dir)]
-check=[os.path.join(check_dir, f) for f in os.listdir(check_dir)]
 print(emails)
 shuffle(emails)
 print(emails)
@@ -46,6 +43,3 @@ model.fit(train_featr,train_label)
 test_pred=model.predict(test_featr)
 print(confusion_matrix(test_label,test_pred))
 print(classification_report(test_label,test_pred))
-check_featr=ext_featr(check,dict)
-check_pred=model.predict(check_featr)
-print(check_pred[:])
